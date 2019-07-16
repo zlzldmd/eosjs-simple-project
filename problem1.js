@@ -10,5 +10,14 @@ const signatureProvider = new JsSignatureProvider(privateKeys);
 const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
 async function main() {
-
+    try {
+        const result = await rpc.get_block(300000);
+        console.log(result.producer);
+        console.log(result.timestamp);
+        
+    } catch (error) {
+        console.error(error);
+        
+    }
 }
+main();
