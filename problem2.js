@@ -11,8 +11,10 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
 
 async function main() {
     try {
-        const result = await rpc.get_account('baekseok1115');
-        console.log(result.created);
+        const result = await rpc.get_block(300000);
+        console.log(result);
+        const result2 = await rpc.get_account('baekseok1115');
+        console.log(result2.created);
     } catch (error) {
         console.error(error);
         
